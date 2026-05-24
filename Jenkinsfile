@@ -75,6 +75,10 @@ tools {
         }
 		stage('publish to nexus') {
             steps {
+			    sh """
+                cp target/simple-java-app-1.0.jar target/simple-java-app-${BUILD_ID}.jar
+                ls -l target/
+                """
                 nexusArtifactUploader(
                     nexusVersion: 'nexus3',
                     protocol: 'http',
