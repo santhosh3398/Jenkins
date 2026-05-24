@@ -91,7 +91,7 @@ tools {
                          [
                              artifactId: 'simple-java-app',
                              classifier: '',
-                             file: 'target/simple-java-app-1.0.jar',
+                             file: 'target/simple-java-app-${BUILD_ID}.jar',
                              type: 'jar'
                          ]
                      ]
