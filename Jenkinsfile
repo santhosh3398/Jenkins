@@ -78,11 +78,10 @@ tools {
                 nexusArtifactUploader(
                     nexusVersion: 'nexus3',
                     protocol: 'http',
-                    url: '172.31.3.97:8081',
+                    nexusUrl: '172.31.3.97:8081',
                     repository: 'simplejava-release',
-                    repoId: 'simplejava-release-id',
                     credentialsId: 'nexuslogin',
-                    Version: "${env.BUILD_ID}",
+                    version: "${env.BUILD_ID}",
                      groupId: 'QA',
                      artifacts: [
                          [
