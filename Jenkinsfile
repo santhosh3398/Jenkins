@@ -83,7 +83,7 @@ tools {
                     nexusVersion: 'nexus3',
                     protocol: 'http',
                     nexusUrl: '172.31.3.97:8081',
-                    repository: 'simplejava-release',
+                    repository: 'maven-java-packages',
                     credentialsId: 'nexuslogin',
                     version: "${env.BUILD_ID}",
                      groupId: 'QA',
