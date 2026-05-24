@@ -68,10 +68,31 @@ tools {
         }
 		stage('QUALITY GATE') {
             steps {
-                timeout(time: 1, unit: 'HOURS') {
+                timeout(time: 1, unit: 'minutes') {
                     waitForQualityGate abortPipeline: true
                 }
             }
         }
+		stage('publish to nexus') {
+            steps {
+                nexusArtifactUploader(
+                    nexusVersion: 'nexus3',
+                    nexusProtocol: 'http',
+                    nexusUrl: '172.31.3.97:8081',
+                    nexusRepository: 'simplejava-release',
+                    nexusRepoId: 'simplejava-release-id',
+                    nexusCredentialId: 'nexuslogin',
+                    artVersion: "${env.BUILD_ID}",
+                     groupId: 'QA',
+                     artifacts: [
+                         [
+                             artifactId: 'simple-java-app',
+                             classifier: '',
+                             file: 'target/simple-java-app-1.0.jar',
+                             type: 'jar'
+                         ]
+                     ]
+                     
+                )
     }
 }
