@@ -68,7 +68,7 @@ tools {
         }
 		stage('QUALITY GATE') {
             steps {
-                timeout(time: 1, unit: 'minutes') {
+                timeout(time: 1, unit: 'MINUTES') {
                     waitForQualityGate abortPipeline: true
                 }
             }
@@ -77,12 +77,12 @@ tools {
             steps {
                 nexusArtifactUploader(
                     nexusVersion: 'nexus3',
-                    nexusProtocol: 'http',
-                    nexusUrl: '172.31.3.97:8081',
-                    nexusRepository: 'simplejava-release',
-                    nexusRepoId: 'simplejava-release-id',
-                    nexusCredentialId: 'nexuslogin',
-                    artVersion: "${env.BUILD_ID}",
+                    Protocol: 'http',
+                    Url: '172.31.3.97:8081',
+                    Repository: 'simplejava-release',
+                    RepoId: 'simplejava-release-id',
+                    CredentialId: 'nexuslogin',
+                    Version: "${env.BUILD_ID}",
                      groupId: 'QA',
                      artifacts: [
                          [
