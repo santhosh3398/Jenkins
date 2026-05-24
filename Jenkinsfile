@@ -55,13 +55,12 @@ tools {
 
           steps {
             withSonarQubeEnv('sonarserver') {
-               sh '''${scannerHome}/bin/sonar-scanner -Dsonar.projectKey=vprofile \
-                   -Dsonar.projectName=vprofile-repo \
+               sh '''${scannerHome}/bin/sonar-scanner -Dsonar.projectKey=simple-java-app \
+                   -Dsonar.projectName=simple-java-app \
                    -Dsonar.projectVersion=1.0 \
                    -Dsonar.sources=src/ \
-                   -Dsonar.java.binaries=target/test-classes/com/visualpathit/account/controllerTest/ \
-                   -Dsonar.junit.reportsPath=target/surefire-reports/ \
-                   -Dsonar.jacoco.reportsPath=target/jacoco.exec \
+                   -Dsonar.java.binaries=target/test-classes/com/example/ \
+                   -Dsonar.junit.reportsPath=target/reports/ \
                    -Dsonar.java.checkstyle.reportPaths=target/checkstyle-result.xml'''
             }
 
